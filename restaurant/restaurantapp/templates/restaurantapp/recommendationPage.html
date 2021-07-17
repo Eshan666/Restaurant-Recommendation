@@ -1,0 +1,50 @@
+{% extends 'restaurantapp/base.html'%}
+{% block content %}
+
+<h1>This is recommendation page</h1>
+<div class="container">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="input-group">
+            <span class="input-group-text"></span>
+            <textarea class="form-control" name="search" aria-label="Type your desired food"></textarea>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto my-4">
+          <button class="btn btn-primary" type="submit">Search!</button>
+        </div>
+    </form>
+    
+    
+    {% if not list %}
+    {{items}}
+    {% endif %}
+
+    {% if list %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Serial</th>
+            <th scope="col">Restaurant</th>
+            <th scope="col">Price Range</th>
+            <th scope="col">Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+          <tr>
+            <th scope="row">{{item.id}}</th>
+            <td><button type="button" class="btn btn-info">{{item.name}}</button></td>
+          
+            <td><button type="button" class="btn btn-success">{{item.price}}</span></td>
+            <td><button type="button" class="btn btn-danger">{{item.rating}}</span></td>
+           
+          </tr>
+          {% endfor %}
+          
+          
+        </tbody>
+      </table>
+      {% endif %}
+</div>
+
+{%endblock%}

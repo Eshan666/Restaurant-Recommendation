@@ -1,0 +1,29 @@
+{% extends 'restaurantapp/base.html'%}
+{% block content %}
+<style>
+    .text1 {
+        width: 350px;
+    }
+</style>
+<h1>This is Rating predictor page</h1>
+<div class="container">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="input-group text1">
+            <span class="input-group-text">Price Rating</span>
+            <input type="text" aria-label="Price Rating" name = "price" class="form-control">
+        </div>
+        <br>
+        <div class="input-group text1">
+            <span class="input-group-text">Service Rating</span>
+            <input type="text" aria-label="Service Rating" name = "service" class="form-control">
+        </div>
+        <br>
+        <input class="btn btn-primary" type="submit" value="Predict">
+    </form>
+    <br>
+    {% if result %}
+    <h1>Your overall rating will be {{result}}</h1>
+    {%endif%}
+</div>
+{%endblock%}
