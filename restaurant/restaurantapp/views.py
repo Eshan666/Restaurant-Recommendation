@@ -86,21 +86,28 @@ def logOutPage(request):
 
 
 def ratingPredictorPage(request):
-    if request.method == "POST":
-        context = {}
-        price = request.POST.get('price')
-        print(price)
+    if request.user.is_authenticated:
+
+        if request.method == "POST":
+            context = {}
+            price = request.POST.get('price')
+            print(price)
         
-        service = request.POST.get('service')
-        print(service)
+            service = request.POST.get('service')
+            print(service)
        
-        pipeline = joblib.load('pipeline')
-        model = joblib.load('model')
-        prep_data = pipeline.transform([[price,service]])
-        result = model.predict(prep_data)[0]
-        result = round(result, 2)
+            pipeline = joblib.load('pipeline')
+            model = joblib.load('model')
+            prep_data = pipeline.transform([[price,service]])
+            result = model.predict(prep_data)[0]
+            result = round(result, 2)
 
-        context = {'result' : result}
-        return render(request,'restaurantapp/ratingPredictor.html',context)
+            context = {'result' : result}
+            return render(request,'restaurantapp/ratingPredictor.html',context)
+        return render(request,'restaurantapp/ratingPredictor.html')
 
-    return render(request,'restaurantapp/ratingPredictor.html')
+    else:
+        
+        return redirect('signInPage')
+
+    

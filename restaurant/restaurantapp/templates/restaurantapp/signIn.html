@@ -20,8 +20,56 @@
 			margin: 0;
 			padding: 0;
 			height: 100%;
-			background: rgb(63, 94, 251);
-			background: linear-gradient(90deg, rgba(63, 94, 251, 1) 0%, rgba(89, 91, 228, 1) 14%, rgba(252, 70, 89, 1) 100%);
+
+
+			background: linear-gradient(244deg, #181cd7, #6169e6, #e967ea, #980999);
+			background-size: 800% 800%;
+
+			-webkit-animation: AnimationName 5s ease infinite;
+			-moz-animation: AnimationName 5s ease infinite;
+			animation: AnimationName 5s ease infinite;
+		}
+
+		@-webkit-keyframes AnimationName {
+			0% {
+				background-position: 0% 49%
+			}
+
+			50% {
+				background-position: 100% 52%
+			}
+
+			100% {
+				background-position: 0% 49%
+			}
+		}
+
+		@-moz-keyframes AnimationName {
+			0% {
+				background-position: 0% 49%
+			}
+
+			50% {
+				background-position: 100% 52%
+			}
+
+			100% {
+				background-position: 0% 49%
+			}
+		}
+
+		@keyframes AnimationName {
+			0% {
+				background-position: 0% 49%
+			}
+
+			50% {
+				background-position: 100% 52%
+			}
+
+			100% {
+				background-position: 0% 49%
+			}
 		}
 
 		.user_card {
@@ -90,8 +138,8 @@
 </head>
 
 <body>
-	
-	
+
+
 
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
@@ -109,7 +157,7 @@
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="username" placeholder="Username..."class="form-control"
+							<input type="text" name="username" placeholder="Username..." class="form-control"
 								autocomplete="off">
 						</div>
 						<div class="input-group mb-2">
