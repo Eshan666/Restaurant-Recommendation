@@ -1,13 +1,13 @@
 {% extends 'restaurantapp/base.html'%}
 {% block content %}
 
-<h1>This is recommendation page</h1>
+<h1>This is Recommendation page</h1>
 <div class="container">
     <form method="POST" action="">
         {% csrf_token %}
         <div class="input-group">
             <span class="input-group-text"></span>
-            <textarea class="form-control" name="search" aria-label="Type your desired food"></textarea>
+            <textarea class="form-control" name="search" aria-label="Type your desired food" placeholder="type valid food names for reccomendation. e.g burger,pizza,biriyani"></textarea>
         </div>
         <div class="d-grid gap-2 col-6 mx-auto my-4">
           <button class="btn btn-primary" type="submit">Search!</button>
