@@ -4,6 +4,10 @@
     .text1 {
         width: 350px;
     }
+    .shops{
+        width: 40%;
+        
+    }
 </style>
 <h1>This is Rating predictor page</h1>
 <div class="container">
@@ -24,7 +28,12 @@
     <br>
     {% if result %}
 
-    <h1 class="info"><span class="badge bg-secondary">Your estimated overall rating will be {{result}}</span></h1>
+    <h1 class="info"><span class="badge bg-secondary">Your estimated overall rating is {{result}}</span></h1>
+    <br>
+    <h1 class="info"><span class="badge rounded-pill bg-warning text-dark">Here are some recommended restaurants according to your rating</span></h1>
+    {% for shop in shops %}
+    <a class="list-group-item list-group-item-action list-group-item-info shops">{{shop}}</a>
+    {% endfor %}
     {%endif%}
 </div>
 {%endblock%}
